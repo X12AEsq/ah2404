@@ -14,6 +14,7 @@ struct LaunchView: View {
     @State var loggedIn = false
     @State var loginFormShowing = false
     @State var createFormShowing = false
+//    @State var showingVehicleView = false
     
     var body: some View {
         
@@ -51,8 +52,9 @@ struct LaunchView: View {
         else {
             
             // Show logged in view
-            StartupView(loggedIn: $loggedIn)
+//            StartupView(loggedIn: $loggedIn)
 //            ContentView(loggedIn: $loggedIn)
+            ContentView(loggedIn: $loggedIn)
         }
     }
     

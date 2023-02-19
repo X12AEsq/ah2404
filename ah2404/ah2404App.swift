@@ -12,12 +12,15 @@ import FirebaseCore
 
 @main
 struct ah2404App: App {
+    
+    @StateObject var CVModel = CommonViewModel()
     init() {
         FirebaseApp.configure()
     }
     var body: some Scene {
         WindowGroup {
             LaunchView()
+                .environmentObject(CVModel)
         }
     }
 }

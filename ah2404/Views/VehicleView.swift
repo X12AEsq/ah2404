@@ -15,6 +15,8 @@ struct VehicleView: View {
     @State private var year = 0
     
     @Environment(\.dismiss) var dismiss
+    
+    @EnvironmentObject var CVModel:CommonViewModel
 
     var vehicle:Vehicle?
     
@@ -112,6 +114,28 @@ struct VehicleView: View {
             "model":model,
             "year":year
         ]
+        
+        if let vehicle = vehicle {
+            // Update
+            guard let vehicleID = vehicle.id else {
+                return
+            }
+            
+            Task {
+                await CVModel.updateVehicle(vehicleID: vehicleID, vehicleData: vehicleData)
+                if CVModel.taskCompleted {
+                    dismiss()
+                }
+            }
+        } else {
+            // Add
+            Task {
+                await CVModel.addVehicle(vehicleData: vehicleData)
+                if CVModel.taskCompleted {
+                    dismiss()
+                }
+            }
+        }
     }
 }
 

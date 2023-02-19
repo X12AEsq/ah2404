@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		310AA0D329A1712C00F68CE2 /* CommonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310AA0D229A1712C00F68CE2 /* CommonViewModel.swift */; };
+		313A8CE729A28F8800ACF202 /* DetailVehicleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313A8CE629A28F8800ACF202 /* DetailVehicleView.swift */; };
 		31AFA57B29A13A0200691453 /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AFA57A29A13A0200691453 /* LaunchView.swift */; };
 		31AFA57D29A13A5900691453 /* CreateForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AFA57C29A13A5900691453 /* CreateForm.swift */; };
 		31AFA57F29A13B0400691453 /* LoginForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AFA57E29A13B0400691453 /* LoginForm.swift */; };
@@ -27,6 +28,7 @@
 
 /* Begin PBXFileReference section */
 		310AA0D229A1712C00F68CE2 /* CommonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonViewModel.swift; sourceTree = "<group>"; };
+		313A8CE629A28F8800ACF202 /* DetailVehicleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVehicleView.swift; sourceTree = "<group>"; };
 		31AFA57A29A13A0200691453 /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
 		31AFA57C29A13A5900691453 /* CreateForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateForm.swift; sourceTree = "<group>"; };
 		31AFA57E29A13B0400691453 /* LoginForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginForm.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				31E3A07929A1A28B00DD4B7D /* VehicleView.swift */,
+				313A8CE629A28F8800ACF202 /* DetailVehicleView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				313A8CE729A28F8800ACF202 /* DetailVehicleView.swift in Sources */,
 				31E3A07C29A1A72700DD4B7D /* Vehicle.swift in Sources */,
 				31AFA57F29A13B0400691453 /* LoginForm.swift in Sources */,
 				31E3A07A29A1A28B00DD4B7D /* VehicleView.swift in Sources */,
