@@ -12,7 +12,7 @@ import FirebaseFirestoreSwift
 
 @available(iOS 15.0, *)
 struct ContentView: View {
-    @State private var showingVehicleView = false
+    @State private var showingEditVehicleView = false
     
     @EnvironmentObject var CVModel:CommonViewModel
  
@@ -26,7 +26,7 @@ struct ContentView: View {
             List {
                 ForEach(vehicles) { vehicle in
                     NavigationLink {
-                        VehicleView(vehicle: vehicle)
+                        EditVehicleView(vehicle: vehicle)
                     } label: {
                         HStack(alignment:.center) {
                             VStack(alignment:.leading) {
@@ -42,13 +42,13 @@ struct ContentView: View {
             }
             .listStyle(.plain)
             .navigationTitle("Albers HH 2404").fontWeight(.regular)
-            .sheet(isPresented: $showingVehicleView) {
-                VehicleView()
+            .sheet(isPresented: $showingEditVehicleView) {
+                EditVehicleView()
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
-                        showingVehicleView = true
+                        showingEditVehicleView = true
                     } label: {
                         Image(systemName: "plus")
                             .padding(8)

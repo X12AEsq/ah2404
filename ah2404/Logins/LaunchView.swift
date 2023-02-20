@@ -14,7 +14,7 @@ struct LaunchView: View {
     @State var loggedIn = false
     @State var loginFormShowing = false
     @State var createFormShowing = false
-//    @State var showingVehicleView = false
+//    @State var showingEditVehicleView = false
     
     var body: some View {
         

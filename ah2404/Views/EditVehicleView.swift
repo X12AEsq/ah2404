@@ -1,5 +1,5 @@
 //
-//  VehicleView.swift
+//  EditVehicleView.swift
 //  ah2404
 //
 //  Created by Morris Albers on 2/18/23.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct VehicleView: View {
+struct EditVehicleView: View {
     
     @State private var nickname = ""
     @State private var make = ""
@@ -139,8 +139,8 @@ struct VehicleView: View {
     }
 }
 
-struct VehicleView_Previews: PreviewProvider {
+struct EditVehicleView_Previews: PreviewProvider {
     static var previews: some View {
-        VehicleView()
+        EditVehicleView()
     }
 }

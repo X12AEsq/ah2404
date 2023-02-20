@@ -12,7 +12,7 @@ struct DetailVehicleView: View {
     
     let vehicle: Vehicle
     
-    @State private var showingEditView = false
+    @State private var showingEditVehicleView = false
     
     var body: some View {
         ScrollView {
@@ -27,14 +27,14 @@ struct DetailVehicleView: View {
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button {
-                    showingEditView = true
+                    showingEditVehicleView = true
                 } label : {
                     Text("Update")
                 }
             }
         }
-        .sheet(isPresented: $showingEditView) {
-            VehicleView(vehicle: vehicle)
+        .sheet(isPresented: $showingEditVehicleView) {
+            EditVehicleView(vehicle: vehicle)
         }
     }
 }

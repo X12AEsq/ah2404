@@ -22,7 +22,7 @@
 		31E3A07329A1851F00DD4B7D /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 31E3A07229A1851F00DD4B7D /* FirebaseFirestore */; };
 		31E3A07529A1851F00DD4B7D /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 31E3A07429A1851F00DD4B7D /* FirebaseFirestoreCombine-Community */; };
 		31E3A07729A1851F00DD4B7D /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 31E3A07629A1851F00DD4B7D /* FirebaseFirestoreSwift */; };
-		31E3A07A29A1A28B00DD4B7D /* VehicleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E3A07929A1A28B00DD4B7D /* VehicleView.swift */; };
+		31E3A07A29A1A28B00DD4B7D /* EditVehicleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E3A07929A1A28B00DD4B7D /* EditVehicleView.swift */; };
 		31E3A07C29A1A72700DD4B7D /* Vehicle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E3A07B29A1A72700DD4B7D /* Vehicle.swift */; };
 /* End PBXBuildFile section */
 
@@ -40,7 +40,7 @@
 		31DCF15D29A132C800521C33 /* ah2404.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ah2404.entitlements; sourceTree = "<group>"; };
 		31DCF15F29A132C800521C33 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		31DCF16B29A1352900521C33 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		31E3A07929A1A28B00DD4B7D /* VehicleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleView.swift; sourceTree = "<group>"; };
+		31E3A07929A1A28B00DD4B7D /* EditVehicleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditVehicleView.swift; sourceTree = "<group>"; };
 		31E3A07B29A1A72700DD4B7D /* Vehicle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vehicle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -130,7 +130,7 @@
 		31E3A07829A1A26700DD4B7D /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				31E3A07929A1A28B00DD4B7D /* VehicleView.swift */,
+				31E3A07929A1A28B00DD4B7D /* EditVehicleView.swift */,
 				313A8CE629A28F8800ACF202 /* DetailVehicleView.swift */,
 			);
 			path = Views;
@@ -219,7 +219,7 @@
 				313A8CE729A28F8800ACF202 /* DetailVehicleView.swift in Sources */,
 				31E3A07C29A1A72700DD4B7D /* Vehicle.swift in Sources */,
 				31AFA57F29A13B0400691453 /* LoginForm.swift in Sources */,
-				31E3A07A29A1A28B00DD4B7D /* VehicleView.swift in Sources */,
+				31E3A07A29A1A28B00DD4B7D /* EditVehicleView.swift in Sources */,
 				31DCF15A29A132C600521C33 /* ContentView.swift in Sources */,
 				31AFA57B29A13A0200691453 /* LaunchView.swift in Sources */,
 				31DCF15829A132C600521C33 /* ah2404App.swift in Sources */,
