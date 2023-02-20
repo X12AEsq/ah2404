@@ -37,7 +37,7 @@ struct VehicleView: View {
                 Spacer()
                 
                 Button {
-                    
+                    dismiss()
                 } label: {
                     Image(systemName: "xmark")
                         .padding(8)

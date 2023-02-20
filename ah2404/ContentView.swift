@@ -26,7 +26,7 @@ struct ContentView: View {
             List {
                 ForEach(vehicles) { vehicle in
                     NavigationLink {
-                        VehicleView()
+                        VehicleView(vehicle: vehicle)
                     } label: {
                         HStack(alignment:.center) {
                             VStack(alignment:.leading) {
