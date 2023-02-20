@@ -7,9 +7,50 @@
 
 import SwiftUI
 
+import SwiftUI
+
 struct MainInterfaceView: View {
+    
+    @EnvironmentObject var commonVM: CommonViewModel
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            Image("background")
+                .resizable()
+                .ignoresSafeArea()
+            
+            VStack {
+                HStack {
+                    Spacer()
+                    Button {
+//                        contentVM.signout()
+                    } label: {
+                        Text("sign out")
+                            .padding(10)
+                            .foregroundColor(.white)
+                            .background(.white.opacity(0.3))
+                            .clipShape(Capsule())
+                    }
+                    .padding()
+                }
+            
+                Spacer()
+                
+                VStack {
+                    Text("Welcome Here")
+                        .font(.system(size: 42, weight: .bold, design: .rounded))
+                        .foregroundColor(.white)
+                    
+                    Text("Let'g grow together")
+                        .font(.title3)
+                        .foregroundColor(.white.opacity(0.3))
+                }
+                .padding(.bottom, 60)
+                
+                Spacer()
+                
+            }
+        }
     }
 }
 

@@ -11,6 +11,11 @@ struct LoginView: View {
     
     @State private var email = ""
     @State private var password = ""
+    
+    @State private var isShowingRegistrationView = false
+    
+    @EnvironmentObject var commonVM: CommonViewModel
+
     var body: some View {
         ZStack {
             Image("background")
@@ -39,7 +44,9 @@ struct LoginView: View {
                 Spacer()
                 VStack(spacing: 20) {
                     Button {
-                        
+                        Task {
+                            await commonVM.signIn(withEmail: email, password: password)
+                        }
                     } label: {
                         Text("sign in")
                             .font(.headline.bold())
@@ -54,7 +61,7 @@ struct LoginView: View {
                             .foregroundColor(.white)
                         
                         Button {
-//                            isShowingRegistrationView = true
+                            isShowingRegistrationView = true
                         } label: {
                             Text("sign up")
                                 .font(.subheadline.bold())

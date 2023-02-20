@@ -21,7 +21,13 @@ struct ContentView: View {
 //    @Binding var loggedIn: Bool
 
     var body: some View {
-        LoginView()
+        Group {
+            if CVModel.userSession != nil {
+                MainInterfaceView()
+            } else {
+                LoginView()
+            }
+        }
     }
 }
 

@@ -14,6 +14,7 @@ import FirebaseCore
 struct ah2404App: App {
     
     @StateObject var CVModel = CommonViewModel()
+    
     init() {
         FirebaseApp.configure()
     }
