@@ -53,8 +53,8 @@ struct LaunchView: View {
             
             // Show logged in view
 //            StartupView(loggedIn: $loggedIn)
+            ContentView()
 //            ContentView(loggedIn: $loggedIn)
-            ContentView(loggedIn: $loggedIn)
         }
     }
     

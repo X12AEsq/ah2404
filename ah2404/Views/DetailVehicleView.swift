@@ -23,6 +23,7 @@ struct DetailVehicleView: View {
             }
         }
         .navigationTitle(vehicle.nickname)
+/*
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
@@ -33,6 +34,7 @@ struct DetailVehicleView: View {
                 }
             }
         }
+ */
         .sheet(isPresented: $showingEditVehicleView) {
             EditVehicleView(vehicle: vehicle)
         }

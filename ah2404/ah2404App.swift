@@ -19,7 +19,7 @@ struct ah2404App: App {
     }
     var body: some Scene {
         WindowGroup {
-            LaunchView()
+            ContentView()
                 .environmentObject(CVModel)
         }
     }

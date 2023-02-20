@@ -18,46 +18,35 @@ struct ContentView: View {
  
     @FirestoreQuery(collectionPath: "vehicles", predicates: []) var vehicles: [Vehicle]
     
-    @Binding var loggedIn: Bool
+//    @Binding var loggedIn: Bool
 
     var body: some View {
-        // TODO: Replace with navigation stack
-        NavigationView {
-            List {
-                ForEach(vehicles) { vehicle in
-                    NavigationLink {
-                        EditVehicleView(vehicle: vehicle)
-                    } label: {
-                        HStack(alignment:.center) {
-                            VStack(alignment:.leading) {
-                                Text(vehicle.nickname)
-                                    .font(.headline)
-                                Text(vehicle.model)
-                                    .font(.subheadline)
-                            }
-                        }
+        LoginView()
+    }
+}
+
+struct AltContentView:View {
+    var body: some View {
+
+//        let items:[ItemRow] = [ItemRow(item: MenuItem(id: UUID(), name: "option1"))]
+        
+        VStack {
+            Image(systemName: "globe")
+                .imageScale(.large)
+                .foregroundColor(.accentColor)
+            NavigationStack {
+                List {
+                    NavigationLink("Work Folder") {
+                        VehicleContentView()
+                    }
+                    NavigationLink("Work Folder") {
+                        VehicleContentView()
                     }
                 }
-                .onDelete(perform: delete)
+                .navigationTitle("Albers HH 2404")
             }
-            .listStyle(.plain)
-            .navigationTitle("Albers HH 2404").fontWeight(.regular)
-            .sheet(isPresented: $showingEditVehicleView) {
-                EditVehicleView()
-            }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button {
-                        showingEditVehicleView = true
-                    } label: {
-                        Image(systemName: "plus")
-                            .padding(8)
-                            .background(.yellow)
-                            .foregroundColor(.black)
-                            .clipShape(Circle())
-                    }
-                }
-            }
+        }
+        .padding()
 /*
                 Button("SignOut", action: {
                     try! Auth.auth().signOut()
@@ -65,45 +54,39 @@ struct ContentView: View {
                     }
                 )
 */
-        }
-//        .onAppear() {
-//            print("ContentView appears")
-//            pcvm.setVersion(version: "2.0.0")
-//            initData()
-//            print("ContentView appearance complete")
-//        }
-//        .onDisappear() {
-//            // By unsubscribing from the view model, we prevent updates coming in from
-//            // Firestore to be reflected in the UI. Since we do want to receive updates
-//            // when the user is on any of the child screens, we keep the subscription active!
-//            //
-//            // print("BooksListView disappears. Unsubscribing from data updates.")
-//            // self.viewModel.unsubscribe()
-//        }
     }
-    
-    func delete(at offsets: IndexSet) {
-        offsets.forEach { index in
-            let vehicle = vehicles[index]
-            Task {
-                await CVModel.deleteVehicle(vehicle:vehicle)
-            }
-        }
-    }
-    
-    func initData() {
-        print("Initializing")
-//        pcvm.representationSubscribe()
-//        pcvm.appearanceSubscribe()
-//        pcvm.causeSubscribe()
-//        pcvm.clientSubscribe()
-//        pcvm.noteSubscribe()
-//        representationCount = pcvm.representations.count
-//        print("\(pcvm.representations.count) representations ready")
-        print("Initialization complete")
-    }
+
+}
+//struct MenuSection: Codable, Identifiable {
+//    var id: UUID
+//    var name: String
+//    var items: [MenuItem]
+//}
+
+struct MenuItem: Codable, Hashable, Identifiable {
+    var id: UUID
+    var name: String
+//    var photoCredit: String
+//    var price: Int
+//    var restrictions: [String]
+//    var description: String
+//
+//    var mainImage: String {
+//        name.replacingOccurrences(of: " ", with: "-").lowercased()
+//    }
+//
+//    var thumbnailImage: String {
+//        "\(mainImage)-thumb"
+//    }
 }
 
+struct ItemRow : View {
+    let item: MenuItem
+
+    var body: some View {
+        Text(item.name)
+    }
+}
 //struct ContentView_Previews: PreviewProvider {
 //    static var previews: some View {
 //        ContentView()
