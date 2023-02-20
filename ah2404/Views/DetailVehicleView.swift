@@ -22,6 +22,20 @@ struct DetailVehicleView: View {
                 VehicleRow(label: "Model", value: vehicle.model)
             }
         }
+        .navigationTitle(vehicle.nickname)
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button {
+                    showingEditView = true
+                } label : {
+                    Text("Update")
+                }
+            }
+        }
+        .sheet(isPresented: $showingEditView) {
+            VehicleView(vehicle: vehicle)
+        }
     }
 }
 

@@ -63,14 +63,14 @@ struct VehicleView: View {
                 Text("make:")
                     .foregroundColor(.green)
                     .opacity(0.6)
-                TextField("Enter make", text: $nickname)
+                TextField("Enter make", text: $make)
                     .textFieldStyle(.roundedBorder)
             }
             VStack(alignment:.leading) {
                 Text("model:")
                     .foregroundColor(.green)
                     .opacity(0.6)
-                TextField("Enter model", text: $nickname)
+                TextField("Enter model", text: $model)
                     .textFieldStyle(.roundedBorder)
             }
             VStack(alignment:.leading) {

@@ -41,7 +41,7 @@ struct ContentView: View {
                 .onDelete(perform: delete)
             }
             .listStyle(.plain)
-            .navigationTitle("Albers Household 2404").font(.title)
+            .navigationTitle("Albers HH 2404").fontWeight(.regular)
             .sheet(isPresented: $showingVehicleView) {
                 VehicleView()
             }
