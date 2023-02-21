@@ -41,7 +41,7 @@ struct RegistrationView: View {
                         .modifier(CustomTextField())
                     
                     TextField("Enter Email", text: $email)
-                        .textInputAutocapitalization(.never)
+//                        .textInputAutocapitalization(.never)
                         .disableAutocorrection(true)
                         .modifier(CustomTextField())
                     
@@ -55,9 +55,9 @@ struct RegistrationView: View {
                 
                 VStack(spacing: 20) {
                     Button {
-//                        Task {
-//                            await commonVM.createUser(withEmail: email, password: password)
-//                        }
+                        Task {
+                            await commonVM.createUser(withEmail: email, password: password)
+                        }
                     } label: {
                         Text("create account")
 

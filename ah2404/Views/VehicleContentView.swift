@@ -18,8 +18,6 @@ struct VehicleContentView: View {
  
     @FirestoreQuery(collectionPath: "vehicles", predicates: []) var vehicles: [Vehicle]
     
-//    @Binding var loggedIn: Bool
-
     var body: some View {
         // TODO: Replace with navigation stack
         NavigationView {
@@ -39,13 +37,13 @@ struct VehicleContentView: View {
                     }
                 }
                 .onDelete(perform: delete)
-                NavigationLink(destination: { Text("xxx") }, label: { Text("yyy") })
+                NavigationLink(destination: { EditVehicleView() }, label: { Text("Add New Vehicle") })
             }
             .listStyle(.plain)
             .navigationTitle("Albers HH 2404").fontWeight(.regular)
-            .sheet(isPresented: $showingEditVehicleView) {
-                EditVehicleView()
-            }
+//            .sheet(isPresented: $showingEditVehicleView) {
+//                EditVehicleView()
+//            }
 /*
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {

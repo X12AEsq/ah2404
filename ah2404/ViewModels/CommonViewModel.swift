@@ -36,24 +36,28 @@ class CommonViewModel: ObservableObject {
     }
     
     @MainActor
-    func signIn(withEmail email: String, password: String) async {
+    func signIn(withEmail email: String, password: String) async -> Bool {
         do {
             let authDataResult = try await auth.signIn(withEmail: email, password: password)
             userSession = authDataResult.user
             print("Debug: User signed in successfully")
+            return true
         } catch {
             print("Debug: Failed to sign in user with error \(error.localizedDescription)")
+            return false
         }
     }
 
     @MainActor
-    func signout() {
+    func signout() -> Bool {
         do {
             try auth.signOut()
             userSession = nil
             print("Debug: User signed out successfully")
+            return true
         } catch {
             print("Debug: Failed to sign out user with error \(error.localizedDescription)")
+            return false
         }
     }
 

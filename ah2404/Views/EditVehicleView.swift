@@ -139,8 +139,8 @@ struct EditVehicleView: View {
     }
 }
 
-struct EditVehicleView_Previews: PreviewProvider {
-    static var previews: some View {
-        EditVehicleView()
-    }
-}
+//struct EditVehicleView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        EditVehicleView()
+//    }
+//}

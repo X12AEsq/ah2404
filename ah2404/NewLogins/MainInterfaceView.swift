@@ -5,50 +5,50 @@
 //  Created by Morris Albers on 2/20/23.
 //
 
-import SwiftUI
-
+import FirebaseFirestore
+import FirebaseFirestoreSwift
 import SwiftUI
 
 struct MainInterfaceView: View {
+    @State private var showingEditVehicleView = false
     
-    @EnvironmentObject var commonVM: CommonViewModel
-    
+    @EnvironmentObject var CVModel:CommonViewModel
+ 
+    @FirestoreQuery(collectionPath: "vehicles", predicates: []) var vehicles: [Vehicle]
+
     var body: some View {
         ZStack {
             Image("background")
                 .resizable()
                 .ignoresSafeArea()
-            
+                .opacity(0.5)
             VStack {
-                HStack {
-                    Spacer()
-                    Button {
-//                        contentVM.signout()
-                    } label: {
-                        Text("sign out")
-                            .padding(10)
-                            .foregroundColor(.white)
-                            .background(.white.opacity(0.3))
-                            .clipShape(Capsule())
-                    }
-                    .padding()
-                }
-            
-                Spacer()
-                
-                VStack {
-                    Text("Welcome Here")
-                        .font(.system(size: 42, weight: .bold, design: .rounded))
+                Button {
+                    _ = CVModel.signout()
+                } label: {
+                    Text("sign out")
+                        .padding(10)
                         .foregroundColor(.white)
-                    
-                    Text("Let'g grow together")
-                        .font(.title3)
-                        .foregroundColor(.white.opacity(0.3))
+                        .background(.white.opacity(0.3))
+                        .clipShape(Capsule())
                 }
-                .padding(.bottom, 60)
+                NavigationStack {
+                    List {
+                        NavigationLink("Vehicles") {
+                            VehicleContentView()
+                        }
+                        NavigationLink("Expenses") {
+                            SelectVehicleView()
+                        }
+                        NavigationLink("Sign Out") {
+                            SignOutView()
+                        }
+                    }
+                    .navigationTitle("Albers HH 2404")
+                }
+                .padding()
                 
                 Spacer()
-                
             }
         }
     }
