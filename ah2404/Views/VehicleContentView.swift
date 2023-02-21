@@ -20,45 +20,18 @@ struct VehicleContentView: View {
     
     var body: some View {
         // TODO: Replace with navigation stack
-        NavigationView {
+        NavigationStack {
             List {
                 ForEach(vehicles) { vehicle in
-                    NavigationLink {
-                        EditVehicleView(vehicle: vehicle)
-                    } label: {
-                        HStack(alignment:.center) {
-                            VStack(alignment:.leading) {
-                                Text(vehicle.nickname)
-                                    .font(.headline)
-                                Text(vehicle.model)
-                                    .font(.subheadline)
-                            }
-                        }
+                    NavigationLink(vehicle.formattedVehicle) {
+                        ExpenseContentView(vehicle: vehicle)
                     }
                 }
                 .onDelete(perform: delete)
                 NavigationLink(destination: { EditVehicleView() }, label: { Text("Add New Vehicle") })
             }
             .listStyle(.plain)
-            .navigationTitle("Albers HH 2404").fontWeight(.regular)
-//            .sheet(isPresented: $showingEditVehicleView) {
-//                EditVehicleView()
-//            }
-/*
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button {
-                        showingEditVehicleView = true
-                    } label: {
-                        Image(systemName: "plus")
-                            .padding(8)
-                            .background(.yellow)
-                            .foregroundColor(.black)
-                            .clipShape(Circle())
-                    }
-                }
-            }
-*/
+            .navigationTitle("Vehicle?")
         }
     }
     

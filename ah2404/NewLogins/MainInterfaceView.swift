@@ -15,6 +15,17 @@ struct MainInterfaceView: View {
     @EnvironmentObject var CVModel:CommonViewModel
  
     @FirestoreQuery(collectionPath: "vehicles", predicates: []) var vehicles: [Vehicle]
+    
+    enum prompts  : String, CaseIterable, Identifiable {
+
+        var id : String { UUID().uuidString }
+
+        case vehicles = "Vehicles"
+        case expenses = "Expenses"
+        case signout = "Sign Out"
+    }
+
+    var selection = prompts.signout
 
     var body: some View {
         ZStack {
@@ -51,6 +62,10 @@ struct MainInterfaceView: View {
                 Spacer()
             }
         }
+    }
+    
+    func destinationView(argument:String) -> AnyView {
+        AnyView(Text("filler"))
     }
 }
 

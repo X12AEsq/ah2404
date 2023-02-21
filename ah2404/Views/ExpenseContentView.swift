@@ -12,14 +12,36 @@ import FirebaseFirestoreSwift
 
 @available(iOS 15.0, *)
 struct ExpenseContentView: View {
+    var vehicle:Vehicle
+    
     @State private var showingEditVehicleView = false
     
     @EnvironmentObject var CVModel:CommonViewModel
  
-    @FirestoreQuery(collectionPath: "expenses", predicates: []) var expenses: [Expense]
+    @FirestoreQuery(collectionPath: "expenses", predicates: [.order(by: "expdate")]) var expenses: [Expense]
 
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack {
+            List {
+                ForEach(expenses) { expense in
+                    if expense.vehicle == vehicle.nickname {
+                        NavigationLink {
+                            EditExpenseView(vehicle: vehicle, expense: expense)
+                        } label: {
+                            HStack(alignment:.center) {
+                                VStack(alignment:.leading) {
+                                    Text(expense.expdate)
+                                        .font(.headline)
+                                }
+                            }
+                        }
+                    }
+                }
+                .listStyle(.plain)
+                NavigationLink(destination: { EditExpenseView(vehicle: vehicle) }, label: { Text("New Expense") })
+            }
+            .navigationTitle("Expense?").fontWeight(.regular)
+        }
     }
 }
 

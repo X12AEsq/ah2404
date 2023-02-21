@@ -12,6 +12,8 @@
 		31106A8029A4385E0065177C /* ExpenseContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31106A7F29A4385E0065177C /* ExpenseContentView.swift */; };
 		31106A8229A439F50065177C /* SelectVehicleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31106A8129A439F50065177C /* SelectVehicleView.swift */; };
 		31106A8429A443AB0065177C /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31106A8329A443AB0065177C /* Expense.swift */; };
+		31106A8629A45A3C0065177C /* EditExpenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31106A8529A45A3C0065177C /* EditExpenseView.swift */; };
+		31106A8829A4634B0065177C /* VehicleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31106A8729A4634B0065177C /* VehicleExtension.swift */; };
 		313A8CE729A28F8800ACF202 /* DetailVehicleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313A8CE629A28F8800ACF202 /* DetailVehicleView.swift */; };
 		3154AA9829A3D38A00BDBBC8 /* VehicleContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3154AA9729A3D38A00BDBBC8 /* VehicleContentView.swift */; };
 		315E6AA329A3FDA30023F6AA /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315E6AA229A3FDA30023F6AA /* LoginView.swift */; };
@@ -19,6 +21,10 @@
 		315E6AA729A3FDDF0023F6AA /* MainInterfaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315E6AA629A3FDDF0023F6AA /* MainInterfaceView.swift */; };
 		315E6AAB29A404370023F6AA /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315E6AAA29A404370023F6AA /* CustomTextField.swift */; };
 		315E6AAD29A409670023F6AA /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315E6AAC29A409670023F6AA /* CustomButton.swift */; };
+		318B8F8A29A54134005DD3BC /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318B8F8929A54134005DD3BC /* Currency.swift */; };
+		318B8F8C29A54172005DD3BC /* Double+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318B8F8B29A54172005DD3BC /* Double+.swift */; };
+		318B8F8E29A541CA005DD3BC /* CurrencyField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318B8F8D29A541CA005DD3BC /* CurrencyField.swift */; };
+		318B8F9029A553C3005DD3BC /* CurrencyType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318B8F8F29A553C3005DD3BC /* CurrencyType.swift */; };
 		31AFA57B29A13A0200691453 /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AFA57A29A13A0200691453 /* LaunchView.swift */; };
 		31AFA57D29A13A5900691453 /* CreateForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AFA57C29A13A5900691453 /* CreateForm.swift */; };
 		31AFA57F29A13B0400691453 /* LoginForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AFA57E29A13B0400691453 /* LoginForm.swift */; };
@@ -42,6 +48,8 @@
 		31106A7F29A4385E0065177C /* ExpenseContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseContentView.swift; sourceTree = "<group>"; };
 		31106A8129A439F50065177C /* SelectVehicleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectVehicleView.swift; sourceTree = "<group>"; };
 		31106A8329A443AB0065177C /* Expense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; };
+		31106A8529A45A3C0065177C /* EditExpenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditExpenseView.swift; sourceTree = "<group>"; };
+		31106A8729A4634B0065177C /* VehicleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleExtension.swift; sourceTree = "<group>"; };
 		313A8CE629A28F8800ACF202 /* DetailVehicleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVehicleView.swift; sourceTree = "<group>"; };
 		3154AA9729A3D38A00BDBBC8 /* VehicleContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleContentView.swift; sourceTree = "<group>"; };
 		315E6AA229A3FDA30023F6AA /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -49,6 +57,10 @@
 		315E6AA629A3FDDF0023F6AA /* MainInterfaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInterfaceView.swift; sourceTree = "<group>"; };
 		315E6AAA29A404370023F6AA /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		315E6AAC29A409670023F6AA /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		318B8F8929A54134005DD3BC /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
+		318B8F8B29A54172005DD3BC /* Double+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+.swift"; sourceTree = "<group>"; };
+		318B8F8D29A541CA005DD3BC /* CurrencyField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyField.swift; sourceTree = "<group>"; };
+		318B8F8F29A553C3005DD3BC /* CurrencyType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyType.swift; sourceTree = "<group>"; };
 		31AFA57A29A13A0200691453 /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
 		31AFA57C29A13A5900691453 /* CreateForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateForm.swift; sourceTree = "<group>"; };
 		31AFA57E29A13B0400691453 /* LoginForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginForm.swift; sourceTree = "<group>"; };
@@ -84,6 +96,7 @@
 			children = (
 				31E3A07B29A1A72700DD4B7D /* Vehicle.swift */,
 				31106A8329A443AB0065177C /* Expense.swift */,
+				31106A8729A4634B0065177C /* VehicleExtension.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -106,6 +119,17 @@
 				315E6AAC29A409670023F6AA /* CustomButton.swift */,
 			);
 			path = NewLogins;
+			sourceTree = "<group>";
+		};
+		318B8F8829A54112005DD3BC /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				318B8F8929A54134005DD3BC /* Currency.swift */,
+				318B8F8B29A54172005DD3BC /* Double+.swift */,
+				318B8F8D29A541CA005DD3BC /* CurrencyField.swift */,
+				318B8F8F29A553C3005DD3BC /* CurrencyType.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		31AFA57929A139DF00691453 /* Logins */ = {
@@ -138,6 +162,7 @@
 		31DCF15629A132C600521C33 /* ah2404 */ = {
 			isa = PBXGroup;
 			children = (
+				318B8F8829A54112005DD3BC /* Extensions */,
 				315E6AA129A3FD920023F6AA /* NewLogins */,
 				31AFA57929A139DF00691453 /* Logins */,
 				310AA0CE29A16D8300F68CE2 /* Models */,
@@ -170,6 +195,7 @@
 				31106A7D29A429690065177C /* SignOutView.swift */,
 				31106A7F29A4385E0065177C /* ExpenseContentView.swift */,
 				31106A8129A439F50065177C /* SelectVehicleView.swift */,
+				31106A8529A45A3C0065177C /* EditExpenseView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -254,18 +280,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31106A8829A4634B0065177C /* VehicleExtension.swift in Sources */,
 				313A8CE729A28F8800ACF202 /* DetailVehicleView.swift in Sources */,
 				31E3A07C29A1A72700DD4B7D /* Vehicle.swift in Sources */,
 				31AFA57F29A13B0400691453 /* LoginForm.swift in Sources */,
 				315E6AA529A3FDC10023F6AA /* RegistrationView.swift in Sources */,
 				31106A8429A443AB0065177C /* Expense.swift in Sources */,
+				318B8F9029A553C3005DD3BC /* CurrencyType.swift in Sources */,
 				31106A8229A439F50065177C /* SelectVehicleView.swift in Sources */,
 				315E6AAD29A409670023F6AA /* CustomButton.swift in Sources */,
 				31E3A07A29A1A28B00DD4B7D /* EditVehicleView.swift in Sources */,
 				31DCF15A29A132C600521C33 /* ContentView.swift in Sources */,
 				31AFA57B29A13A0200691453 /* LaunchView.swift in Sources */,
 				315E6AA329A3FDA30023F6AA /* LoginView.swift in Sources */,
+				31106A8629A45A3C0065177C /* EditExpenseView.swift in Sources */,
 				3154AA9829A3D38A00BDBBC8 /* VehicleContentView.swift in Sources */,
+				318B8F8A29A54134005DD3BC /* Currency.swift in Sources */,
 				31DCF15829A132C600521C33 /* ah2404App.swift in Sources */,
 				31106A8029A4385E0065177C /* ExpenseContentView.swift in Sources */,
 				31AFA58129A13B6D00691453 /* StartupView.swift in Sources */,
@@ -273,6 +303,8 @@
 				31AFA57D29A13A5900691453 /* CreateForm.swift in Sources */,
 				315E6AA729A3FDDF0023F6AA /* MainInterfaceView.swift in Sources */,
 				315E6AAB29A404370023F6AA /* CustomTextField.swift in Sources */,
+				318B8F8C29A54172005DD3BC /* Double+.swift in Sources */,
+				318B8F8E29A541CA005DD3BC /* CurrencyField.swift in Sources */,
 				31106A7E29A429690065177C /* SignOutView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

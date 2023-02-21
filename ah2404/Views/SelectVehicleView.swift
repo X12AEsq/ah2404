@@ -17,25 +17,16 @@ struct SelectVehicleView: View {
     @FirestoreQuery(collectionPath: "vehicles", predicates: []) var vehicles: [Vehicle]
 
     var body: some View {
-        NavigationView {
+        NavigationStack {
             List {
                 ForEach(vehicles) { vehicle in
-                    NavigationLink {
-//                        EditVehicleView(vehicle: vehicle)
-                    } label: {
-                        HStack(alignment:.center) {
-                            VStack(alignment:.leading) {
-                                Text(vehicle.nickname)
-                                    .font(.headline)
-                                Text(vehicle.model)
-                                    .font(.subheadline)
-                            }
-                        }
+                    NavigationLink(vehicle.formattedVehicle) {
+                        ExpenseContentView(vehicle: vehicle)
                     }
                 }
-            }
+             }
             .listStyle(.plain)
-            .navigationTitle("Which Vehicle?").fontWeight(.regular)
+            .navigationTitle("Select")
         }
     }
 }
