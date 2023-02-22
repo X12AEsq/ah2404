@@ -25,10 +25,10 @@
 		318B8F8C29A54172005DD3BC /* Double+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318B8F8B29A54172005DD3BC /* Double+.swift */; };
 		318B8F8E29A541CA005DD3BC /* CurrencyField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318B8F8D29A541CA005DD3BC /* CurrencyField.swift */; };
 		318B8F9029A553C3005DD3BC /* CurrencyType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318B8F8F29A553C3005DD3BC /* CurrencyType.swift */; };
-		31AFA57B29A13A0200691453 /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AFA57A29A13A0200691453 /* LaunchView.swift */; };
-		31AFA57D29A13A5900691453 /* CreateForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AFA57C29A13A5900691453 /* CreateForm.swift */; };
-		31AFA57F29A13B0400691453 /* LoginForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AFA57E29A13B0400691453 /* LoginForm.swift */; };
-		31AFA58129A13B6D00691453 /* StartupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AFA58029A13B6D00691453 /* StartupView.swift */; };
+		318B8F9229A56D2C005DD3BC /* ExpenseExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318B8F9129A56D2C005DD3BC /* ExpenseExtension.swift */; };
+		318B8F9529A56E7D005DD3BC /* DateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318B8F9429A56E7D005DD3BC /* DateService.swift */; };
+		318B8F9729A56EEB005DD3BC /* FormattingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318B8F9629A56EEB005DD3BC /* FormattingService.swift */; };
+		318B8F9A29A57FC5005DD3BC /* ExpenseCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318B8F9929A57FC5005DD3BC /* ExpenseCategories.swift */; };
 		31DCF15829A132C600521C33 /* ah2404App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DCF15729A132C600521C33 /* ah2404App.swift */; };
 		31DCF15A29A132C600521C33 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DCF15929A132C600521C33 /* ContentView.swift */; };
 		31DCF15C29A132C800521C33 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31DCF15B29A132C800521C33 /* Assets.xcassets */; };
@@ -61,10 +61,10 @@
 		318B8F8B29A54172005DD3BC /* Double+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+.swift"; sourceTree = "<group>"; };
 		318B8F8D29A541CA005DD3BC /* CurrencyField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyField.swift; sourceTree = "<group>"; };
 		318B8F8F29A553C3005DD3BC /* CurrencyType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyType.swift; sourceTree = "<group>"; };
-		31AFA57A29A13A0200691453 /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
-		31AFA57C29A13A5900691453 /* CreateForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateForm.swift; sourceTree = "<group>"; };
-		31AFA57E29A13B0400691453 /* LoginForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginForm.swift; sourceTree = "<group>"; };
-		31AFA58029A13B6D00691453 /* StartupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartupView.swift; sourceTree = "<group>"; };
+		318B8F9129A56D2C005DD3BC /* ExpenseExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseExtension.swift; sourceTree = "<group>"; };
+		318B8F9429A56E7D005DD3BC /* DateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateService.swift; sourceTree = "<group>"; };
+		318B8F9629A56EEB005DD3BC /* FormattingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormattingService.swift; sourceTree = "<group>"; };
+		318B8F9929A57FC5005DD3BC /* ExpenseCategories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseCategories.swift; sourceTree = "<group>"; };
 		31DCF15429A132C600521C33 /* ah2404.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ah2404.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31DCF15729A132C600521C33 /* ah2404App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ah2404App.swift; sourceTree = "<group>"; };
 		31DCF15929A132C600521C33 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -95,8 +95,9 @@
 			isa = PBXGroup;
 			children = (
 				31E3A07B29A1A72700DD4B7D /* Vehicle.swift */,
-				31106A8329A443AB0065177C /* Expense.swift */,
 				31106A8729A4634B0065177C /* VehicleExtension.swift */,
+				31106A8329A443AB0065177C /* Expense.swift */,
+				318B8F9129A56D2C005DD3BC /* ExpenseExtension.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -132,15 +133,21 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		31AFA57929A139DF00691453 /* Logins */ = {
+		318B8F9329A56E6E005DD3BC /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				31AFA57A29A13A0200691453 /* LaunchView.swift */,
-				31AFA57C29A13A5900691453 /* CreateForm.swift */,
-				31AFA57E29A13B0400691453 /* LoginForm.swift */,
-				31AFA58029A13B6D00691453 /* StartupView.swift */,
+				318B8F9429A56E7D005DD3BC /* DateService.swift */,
+				318B8F9629A56EEB005DD3BC /* FormattingService.swift */,
 			);
-			path = Logins;
+			path = Services;
+			sourceTree = "<group>";
+		};
+		318B8F9829A57FB0005DD3BC /* Enumerations */ = {
+			isa = PBXGroup;
+			children = (
+				318B8F9929A57FC5005DD3BC /* ExpenseCategories.swift */,
+			);
+			path = Enumerations;
 			sourceTree = "<group>";
 		};
 		31DCF14B29A132C600521C33 = {
@@ -162,9 +169,10 @@
 		31DCF15629A132C600521C33 /* ah2404 */ = {
 			isa = PBXGroup;
 			children = (
+				318B8F9829A57FB0005DD3BC /* Enumerations */,
+				318B8F9329A56E6E005DD3BC /* Services */,
 				318B8F8829A54112005DD3BC /* Extensions */,
 				315E6AA129A3FD920023F6AA /* NewLogins */,
-				31AFA57929A139DF00691453 /* Logins */,
 				310AA0CE29A16D8300F68CE2 /* Models */,
 				310AA0D129A170F500F68CE2 /* ViewModels */,
 				31E3A07829A1A26700DD4B7D /* Views */,
@@ -282,25 +290,25 @@
 			files = (
 				31106A8829A4634B0065177C /* VehicleExtension.swift in Sources */,
 				313A8CE729A28F8800ACF202 /* DetailVehicleView.swift in Sources */,
+				318B8F9729A56EEB005DD3BC /* FormattingService.swift in Sources */,
 				31E3A07C29A1A72700DD4B7D /* Vehicle.swift in Sources */,
-				31AFA57F29A13B0400691453 /* LoginForm.swift in Sources */,
+				318B8F9529A56E7D005DD3BC /* DateService.swift in Sources */,
 				315E6AA529A3FDC10023F6AA /* RegistrationView.swift in Sources */,
 				31106A8429A443AB0065177C /* Expense.swift in Sources */,
 				318B8F9029A553C3005DD3BC /* CurrencyType.swift in Sources */,
 				31106A8229A439F50065177C /* SelectVehicleView.swift in Sources */,
 				315E6AAD29A409670023F6AA /* CustomButton.swift in Sources */,
+				318B8F9A29A57FC5005DD3BC /* ExpenseCategories.swift in Sources */,
 				31E3A07A29A1A28B00DD4B7D /* EditVehicleView.swift in Sources */,
 				31DCF15A29A132C600521C33 /* ContentView.swift in Sources */,
-				31AFA57B29A13A0200691453 /* LaunchView.swift in Sources */,
 				315E6AA329A3FDA30023F6AA /* LoginView.swift in Sources */,
 				31106A8629A45A3C0065177C /* EditExpenseView.swift in Sources */,
 				3154AA9829A3D38A00BDBBC8 /* VehicleContentView.swift in Sources */,
 				318B8F8A29A54134005DD3BC /* Currency.swift in Sources */,
 				31DCF15829A132C600521C33 /* ah2404App.swift in Sources */,
+				318B8F9229A56D2C005DD3BC /* ExpenseExtension.swift in Sources */,
 				31106A8029A4385E0065177C /* ExpenseContentView.swift in Sources */,
-				31AFA58129A13B6D00691453 /* StartupView.swift in Sources */,
 				310AA0D329A1712C00F68CE2 /* CommonViewModel.swift in Sources */,
-				31AFA57D29A13A5900691453 /* CreateForm.swift in Sources */,
 				315E6AA729A3FDDF0023F6AA /* MainInterfaceView.swift in Sources */,
 				315E6AAB29A404370023F6AA /* CustomTextField.swift in Sources */,
 				318B8F8C29A54172005DD3BC /* Double+.swift in Sources */,
