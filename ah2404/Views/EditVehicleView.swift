@@ -13,6 +13,7 @@ struct EditVehicleView: View {
     @State private var make = ""
     @State private var model = ""
     @State private var year = 0
+    @State private var initialMiles = ""
     
     @Environment(\.dismiss) var dismiss
     
@@ -103,6 +104,7 @@ struct EditVehicleView: View {
                 make = vehicle.make
                 model = vehicle.model
                 year = vehicle.year
+                initialMiles = vehicle.initialMiles
             }
         }
     }
@@ -112,7 +114,8 @@ struct EditVehicleView: View {
             "nickname":nickname,
             "make":make,
             "model":model,
-            "year":year
+            "year":year,
+            "initialMiles":initialMiles
         ]
         
         if let vehicle = vehicle {

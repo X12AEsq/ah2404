@@ -108,5 +108,24 @@ class CommonViewModel: ObservableObject {
             print("Debug deleteVehicle failed \(error.localizedDescription)")
         }
     }
+/*
+    @MainActor
+    func addExpense(expenseData: [String:Any]) async {
+        
+        taskCompleted = false
+
+        do {
+            try await db.collection("vehicles").document().setData(expenseData)
+            taskCompleted = true
+            print("Debug addExpense added successfully")
+
+        } catch {
+            print("Debug addExpense failed \(error.localizedDescription)")
+        }
+    }
+*/
+    func addExpense(expenseData: [String:Any]) {
+        print("in addExpense")
+    }
 
 }

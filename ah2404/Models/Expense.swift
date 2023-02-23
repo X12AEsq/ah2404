@@ -18,6 +18,7 @@ class Expense: Identifiable, Codable, ObservableObject {
     var exptype:String
     var expamount:String
     var expdescr:String
+    var expcost:String
     
     init() {
         self.id = ""
@@ -27,9 +28,10 @@ class Expense: Identifiable, Codable, ObservableObject {
         self.expamount = ""
         self.expmiles = ""
         self.expdescr = ""
+        self.expcost = ""
     }
     
-    init (fsid:String, expdate:String, vehicle:String, exptype:String, amount:String, miles:String, descr:String) {
+    init (fsid:String, expdate:String, vehicle:String, exptype:String, amount:String, miles:String, descr:String, cost:String) {
         self.id = fsid
         self.vehicle = vehicle
         self.expdate = expdate
@@ -37,5 +39,6 @@ class Expense: Identifiable, Codable, ObservableObject {
         self.expamount = amount
         self.expmiles = miles
         self.expdescr = descr
+        self.expcost = cost
     }
 }
