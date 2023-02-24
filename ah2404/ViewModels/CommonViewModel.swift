@@ -65,31 +65,106 @@ class CommonViewModel: ObservableObject {
         }
     }
 
+//    @MainActor
+//    func addVehicle(vehicleData: [String:Any]) async {
+//
+//        taskCompleted = false
+//
+//        do {
+//            try await db.collection("vehicles").document().setData(vehicleData)
+//            taskCompleted = true
+//            print("Debug addVehicle added successfully")
+//
+//        } catch {
+//            print("Debug addVehicle failed \(error.localizedDescription)")
+//        }
+//    }
+//
+    func vehicleAny(nickname:String, make:String, model:String, year:Int, initialMiles:Int) -> [String:Any] {
+        let vehicleData: [String:Any] = [
+            "nickname":nickname,
+            "make":make,
+            "model":model,
+            "year":year,
+            "initialMiles":initialMiles
+        ]
+        return vehicleData
+    }
+
+//
+//  Adding a vehicle
+//
     @MainActor
     func addVehicle(vehicleData: [String:Any]) async {
-        
         taskCompleted = false
-
+        
         do {
             try await db.collection("vehicles").document().setData(vehicleData)
             taskCompleted = true
             print("Debug addVehicle added successfully")
-
+            
         } catch {
             print("Debug addVehicle failed \(error.localizedDescription)")
         }
     }
     
     @MainActor
+    func addVehicle (nickname:String, make:String, model:String, year:Int, initialMiles:Int) async {
+        let vehicleData:[String:Any] = vehicleAny(nickname:nickname, make:make, model:model, year:year, initialMiles:initialMiles)
+        taskCompleted = false
+        
+        do {
+            try await db.collection("vehicles").document().setData(vehicleData)
+            taskCompleted = true
+            print("Debug addVehicle added successfully")
+            
+        } catch {
+            print("Debug addVehicle failed \(error.localizedDescription)")
+        }
+    }
+        
+//    @MainActor
+//    func updateVehicle(vehicleID:String, vehicleData: [String:Any]) async {
+//
+//        taskCompleted = false
+//
+//        do {
+//            try await db.collection("vehicles").document(vehicleID).updateData(vehicleData)
+//            taskCompleted = true
+//            print("Debug updateVehicle updated successfully")
+//
+//        } catch {
+//            print("Debug updateVehicle failed \(error.localizedDescription)")
+//        }
+//    }
+
+    @MainActor
     func updateVehicle(vehicleID:String, vehicleData: [String:Any]) async {
         
         taskCompleted = false
-
+        
         do {
             try await db.collection("vehicles").document(vehicleID).updateData(vehicleData)
             taskCompleted = true
             print("Debug updateVehicle updated successfully")
+            
+        } catch {
+            print("Debug updateVehicle failed \(error.localizedDescription)")
+        }
+    }
 
+    @MainActor
+    func updateVehicle(vehicleID:String, nickname:String, make:String, model:String, year:Int, initialMiles:Int) async {
+        
+        let vehicleData:[String:Any] = vehicleAny(nickname:nickname, make:make, model:model, year:year, initialMiles:initialMiles)
+        
+        taskCompleted = false
+        
+        do {
+            try await db.collection("vehicles").document(vehicleID).updateData(vehicleData)
+            taskCompleted = true
+            print("Debug updateVehicle updated successfully")
+            
         } catch {
             print("Debug updateVehicle failed \(error.localizedDescription)")
         }
