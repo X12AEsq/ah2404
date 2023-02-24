@@ -14,7 +14,7 @@ struct MainInterfaceView: View {
     
     @EnvironmentObject var CVModel:CommonViewModel
  
-    @FirestoreQuery(collectionPath: "vehicles", predicates: []) var vehicles: [Vehicle]
+//    @FirestoreQuery(collectionPath: "vehicles", predicates: []) var vehicles: [Vehicle]
 
     var body: some View {
         ZStack {

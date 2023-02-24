@@ -13,32 +13,32 @@ class Expense: Identifiable, Codable, ObservableObject {
     
     @DocumentID var id: String?
     var vehicle:String
-    var expdate:String
-    var expmiles: String
-    var exptype:String
-    var expamount:String
-    var expdescr:String
-    var expcost:String
+    var expenseDate:String
+    var expenseMiles: String
+    var expenseType:String
+    var expenseFuel:String
+    var expenseDescr:String
+    var expenseCost:String
     
     init() {
         self.id = ""
         self.vehicle = ""
-        self.expdate = ""
-        self.exptype = ""
-        self.expamount = ""
-        self.expmiles = ""
-        self.expdescr = ""
-        self.expcost = ""
+        self.expenseDate = ""
+        self.expenseType = ""
+        self.expenseFuel = ""
+        self.expenseMiles = ""
+        self.expenseDescr = ""
+        self.expenseCost = ""
     }
     
-    init (fsid:String, expdate:String, vehicle:String, exptype:String, amount:String, miles:String, descr:String, cost:String) {
+    init (fsid:String, expenseDate:String, vehicle:String, expenseType:String, amount:String, miles:String, descr:String, cost:String) {
         self.id = fsid
         self.vehicle = vehicle
-        self.expdate = expdate
-        self.exptype = exptype
-        self.expamount = amount
-        self.expmiles = miles
-        self.expdescr = descr
-        self.expcost = cost
+        self.expenseDate = expenseDate
+        self.expenseType = expenseType
+        self.expenseFuel = amount
+        self.expenseMiles = miles
+        self.expenseDescr = descr
+        self.expenseCost = cost
     }
 }

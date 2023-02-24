@@ -20,9 +20,13 @@ class CommonViewModel: ObservableObject {
     
     @Published var userSession: FirebaseAuth.User?
     
+    @Published var vehicles = [Vehicle]()
+    
+    var vehicleListener: ListenerRegistration?
+
     init() {
         userSession = auth.currentUser
-    }
+     }
 
     @MainActor
     func createUser(withEmail email: String, password: String) async {
@@ -108,14 +112,14 @@ class CommonViewModel: ObservableObject {
             print("Debug deleteVehicle failed \(error.localizedDescription)")
         }
     }
-/*
+
     @MainActor
     func addExpense(expenseData: [String:Any]) async {
         
         taskCompleted = false
 
         do {
-            try await db.collection("vehicles").document().setData(expenseData)
+            try await db.collection("expenses").document().setData(expenseData)
             taskCompleted = true
             print("Debug addExpense added successfully")
 
@@ -123,9 +127,33 @@ class CommonViewModel: ObservableObject {
             print("Debug addExpense failed \(error.localizedDescription)")
         }
     }
-*/
-    func addExpense(expenseData: [String:Any]) {
-        print("in addExpense")
-    }
 
+//    func addExpense(expenseData: [String:Any]) {
+//        print("in addExpense")
+//    }
+    
+    func vehicleSubscribe() {
+        if vehicleListener == nil {
+            vehicleListener = db.collection("vehicles").addSnapshotListener
+            { [self] (querySnapshot, error) in
+                guard let documents = querySnapshot?.documents else {
+                    print("No causes")
+                    return
+                }
+                self.vehicles = []
+                _ = documents.map { queryDocumentSnapshot -> Void in
+                    let data = queryDocumentSnapshot.data()
+                    self.vehicles.append(Vehicle(
+                        fsid: queryDocumentSnapshot.documentID,
+                        nickname: data["nickname"] as? String ?? "",
+                        make: data["make"] as? String ?? "",
+                        model: data["model"] as? String ?? "",
+                        year: data["year"] as? Int ?? 0,
+                        initialMiles: data["initialMiles"] as? Int ?? 0
+                    ))
+                    return
+                }
+            }
+        }
+    }
 }

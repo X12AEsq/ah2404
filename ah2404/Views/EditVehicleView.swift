@@ -13,11 +13,17 @@ struct EditVehicleView: View {
     @State private var make = ""
     @State private var model = ""
     @State private var year = 0
-    @State private var initialMiles = ""
+    @State private var initialMiles = 0
     
     @Environment(\.dismiss) var dismiss
     
     @EnvironmentObject var CVModel:CommonViewModel
+    
+    @State private var numberFormatter: NumberFormatter = {
+        var nf = NumberFormatter()
+        nf.numberStyle = .none
+        return nf
+    }()
 
     var vehicle:Vehicle?
     
@@ -53,35 +59,47 @@ struct EditVehicleView: View {
         Spacer()
         
         VStack(spacing: 20) {
-            VStack(alignment:.leading) {
+//            VStack(alignment:.leading) {
+            HStack {
                 Text("nickname:")
                     .foregroundColor(.green)
                     .opacity(0.6)
                 TextField("Enter nickname", text: $nickname)
                     .textFieldStyle(.roundedBorder)
             }
-            VStack(alignment:.leading) {
+//            VStack(alignment:.leading) {
+            HStack {
                 Text("make:")
                     .foregroundColor(.green)
                     .opacity(0.6)
                 TextField("Enter make", text: $make)
                     .textFieldStyle(.roundedBorder)
             }
-            VStack(alignment:.leading) {
+//            VStack(alignment:.leading) {
+            HStack {
                 Text("model:")
                     .foregroundColor(.green)
                     .opacity(0.6)
                 TextField("Enter model", text: $model)
                     .textFieldStyle(.roundedBorder)
             }
-            VStack(alignment:.leading) {
+//            VStack(alignment:.leading) {
+            HStack {
                 Text("year:")
                     .foregroundColor(.green)
                     .opacity(0.6)
-                TextField("Enter year", value: $year, format: .number)
+                TextField("Enter year", value: $year, formatter: numberFormatter)
                     .textFieldStyle(.roundedBorder)
             }
-        
+//            VStack(alignment:.leading) {
+            HStack {
+                Text("starting mileage:")
+                    .foregroundColor(.green)
+                    .opacity(0.6)
+                TextField("Enter mileage", value: $initialMiles, format: .number)
+                    .textFieldStyle(.roundedBorder)
+            }
+
             Spacer()
             
             Button {

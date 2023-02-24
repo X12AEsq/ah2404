@@ -16,18 +16,18 @@ struct VehicleContentView: View {
     
     @EnvironmentObject var CVModel:CommonViewModel
  
-    @FirestoreQuery(collectionPath: "vehicles", predicates: []) var vehicles: [Vehicle]
+//    @FirestoreQuery(collectionPath: "vehicles", predicates: []) var vehicles: [Vehicle]
     
     var body: some View {
         // TODO: Replace with navigation stack
         NavigationStack {
             List {
-                ForEach(vehicles) { vehicle in
+                ForEach(CVModel.vehicles) { vehicle in
                     NavigationLink(vehicle.formattedVehicle) {
-                        ExpenseContentView(vehicle: vehicle)
+                        EditVehicleView(vehicle: vehicle)
                     }
                 }
-                .onDelete(perform: delete)
+//                .onDelete(perform: delete)
                 NavigationLink(destination: { EditVehicleView() }, label: { Text("Add New Vehicle") })
             }
             .listStyle(.plain)
@@ -35,12 +35,12 @@ struct VehicleContentView: View {
         }
     }
     
-    func delete(at offsets: IndexSet) {
-        offsets.forEach { index in
-            let vehicle = vehicles[index]
-            Task {
-                await CVModel.deleteVehicle(vehicle:vehicle)
-            }
-        }
-    }
+//    func delete(at offsets: IndexSet) {
+//        offsets.forEach { index in
+//            let vehicle = vehicles[index]
+//            Task {
+//                await CVModel.deleteVehicle(vehicle:vehicle)
+//            }
+//        }
+//    }
 }

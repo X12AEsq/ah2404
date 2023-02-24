@@ -28,6 +28,9 @@ struct SelectVehicleView: View {
             .listStyle(.plain)
             .navigationTitle("Select")
         }
+        .onAppear {
+            print("SelectVehicleView appears")
+        }
     }
 }
 

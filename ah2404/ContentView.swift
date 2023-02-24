@@ -16,7 +16,7 @@ struct ContentView: View {
     
     @EnvironmentObject var CVModel:CommonViewModel
  
-    @FirestoreQuery(collectionPath: "vehicles", predicates: []) var vehicles: [Vehicle]
+//    @FirestoreQuery(collectionPath: "vehicles", predicates: []) var vehicles: [Vehicle]
     
 //    @Binding var loggedIn: Bool
 
@@ -27,6 +27,9 @@ struct ContentView: View {
             } else {
                 LoginView()
             }
+        }
+        .onAppear {
+            CVModel.vehicleSubscribe()
         }
     }
 }

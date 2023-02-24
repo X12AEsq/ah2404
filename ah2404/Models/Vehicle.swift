@@ -15,7 +15,7 @@ class Vehicle: Identifiable, Codable, ObservableObject {
     var make:String
     var model:String
     var year:Int
-    var initialMiles:String
+    var initialMiles:Int
 
     init() {
         self.id = ""
@@ -23,10 +23,10 @@ class Vehicle: Identifiable, Codable, ObservableObject {
         self.make = ""
         self.model = ""
         self.year = 0
-        self.initialMiles = ""
+        self.initialMiles = 0
     }
     
-    init (fsid:String, nickname:String, make:String, model:String, year:Int, initialMiles:String) {
+    init (fsid:String, nickname:String, make:String, model:String, year:Int, initialMiles:Int) {
         self.id = fsid
         self.nickname = nickname
         self.make = make

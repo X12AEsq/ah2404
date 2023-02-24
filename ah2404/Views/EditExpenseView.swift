@@ -8,6 +8,11 @@
 import SwiftUI
 
 struct EditExpenseView: View {
+    
+    @Environment(\.dismiss) var dismiss
+    
+    @EnvironmentObject var CVModel:CommonViewModel
+
     var vehicle:Vehicle
     var expense:Expense?
     
@@ -34,7 +39,7 @@ struct EditExpenseView: View {
     @State private var expenseType = ""
     @State private var expdate = ""
     @State private var expvehicle = ""
-    @State private var expamount = "" // fuel in gallons
+    @State private var expenseFuel = "" // fuel in gallons
     @State private var expmiles = ""
     @State private var expdescr = ""
     @State private var expcost = ""
@@ -85,13 +90,13 @@ struct EditExpenseView: View {
                 if expenseType == "Fuel" {
                     HStack {
                         Text("Expense Fuel")
-                        TextField(text: $expamount, prompt: Text("gallons")) {
-                            Text(expamount).tag(Optional<String>(nil))
+                        TextField(text: $expenseFuel, prompt: Text("gallons")) {
+                            Text(expenseFuel).tag(Optional<String>(nil))
                         }
                         .onSubmit {
-                            print(expamount)
-                            let worklist = FormattingService.deComposeNumber(inpnumber:expamount)
-                            expamount = FormattingService.formatNumber(inpnumber: worklist, decimals: 3)
+                            print(expenseFuel)
+                            let worklist = FormattingService.deComposeNumber(inpnumber:expenseFuel)
+                            expenseFuel = FormattingService.formatNumber(inpnumber: worklist, decimals: 3)
                         }
                     }
                 }
@@ -114,7 +119,7 @@ struct EditExpenseView: View {
                 Button {
                     let recordStatus = editExpenseRecord()
                     if recordStatus {
-                        EditData()
+                        RecordData()
                         if editing {
                             print("Editing")
                         } else {
@@ -136,13 +141,13 @@ struct EditExpenseView: View {
         .padding(.leading, 20.0)
         .onAppear {
             if let expense = expense {
-                expdate = expense.expdate
+                expdate = expense.expenseDate
 //                expenseIntDate = DateService.dateExt2Int(inDate: expdate)
                 expenseHeading = "Edit Expense"
-                expenseType = expense.exptype
-                expamount = expense.expamount
-                expmiles = expense.expmiles
-                expdescr = expense.expdescr
+                expenseType = expense.expenseType
+                expenseFuel = expense.expenseFuel
+                expmiles = expense.expenseMiles
+                expdescr = expense.expenseDescr
                 editing = true
                 saveMessage = "Update"
             } else {
@@ -153,7 +158,7 @@ struct EditExpenseView: View {
                 print("Date: \(expenseDateString) \(expenseTimeString) \(expenseIntDate)")
                 expenseType = expTypes.ExpenseCategoryOptions[0]
                 expvehicle = vehicle.nickname
-                expamount = ""
+                expenseFuel = ""
                 expmiles = ""
                 expdescr = ""
                 editing = false
@@ -186,7 +191,7 @@ struct EditExpenseView: View {
      - key : "expenseDescr"
      - value : ""
  
-    EditData() has not been invoked yet when editExpenseRecord() is called
+    RecordData() has not been invoked yet when editExpenseRecord() is called
 */
     func editExpenseRecord() -> Bool {
         editMessage = ""
@@ -196,6 +201,20 @@ struct EditExpenseView: View {
         } else {
             expdate = expenseDateString + ", " + expenseTimeString
             print(expenseDateString, expenseTimeString, expdate)
+        }
+        if expenseType == "Fuel" {
+            if expenseFuel == "" {
+                editMessage = "If reporting fueling, must enter amount of fuel"
+                return false
+            }
+        }
+        if expmiles == "" || Int(expmiles) == nil || Int(expmiles) == 0 {
+            editMessage = "Mileage must not be blank or zero"
+            return false
+        }
+        if expcost == "" {
+            editMessage = "Cost must not be blank"
+            return false
         }
         return true
     }
@@ -208,14 +227,16 @@ struct EditExpenseView: View {
         expenseDateString = workDate[7]
         expenseTimeString = workDate[6]
     }
-    
-    func EditData() {
+/*
+    RecordData is called after the input data has been edited
+*/
+    func RecordData() {
         let expenseData: [String:Any] = [
             "vehicle":expvehicle,
             "expenseDate":expdate,
             "expenseMiles":expmiles,
             "expenseType":expenseType,
-            "expenseFuel":expamount,
+            "expenseFuel":expenseFuel,
             "expenseDescr":expdescr,
             "expenseCost":expcost
         ]
@@ -236,12 +257,12 @@ struct EditExpenseView: View {
         } else {
             print(expenseData)
             // Add
-//            Task {
-//                await CVModel.addVehicle(vehicleData: vehicleData)
-//                if CVModel.taskCompleted {
-//                    dismiss()
-//                }
-//            }
+            Task {
+                await CVModel.addExpense(expenseData: expenseData)
+                if CVModel.taskCompleted {
+                    dismiss()
+                }
+            }
         }
     }
 

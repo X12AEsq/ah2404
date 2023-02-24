@@ -17,6 +17,7 @@ struct ah2404App: App {
     
     init() {
         FirebaseApp.configure()
+
     }
     var body: some Scene {
         WindowGroup {

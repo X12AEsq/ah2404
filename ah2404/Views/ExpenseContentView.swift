@@ -18,7 +18,7 @@ struct ExpenseContentView: View {
     
     @EnvironmentObject var CVModel:CommonViewModel
  
-    @FirestoreQuery(collectionPath: "expenses", predicates: [.order(by: "expdate")]) var expenses: [Expense]
+    @FirestoreQuery(collectionPath: "expenses", predicates: []) var expenses: [Expense]
 
     var body: some View {
         NavigationStack {
@@ -30,10 +30,11 @@ struct ExpenseContentView: View {
                         } label: {
                             HStack(alignment:.center) {
                                 VStack(alignment:.leading) {
-                                    Text(expense.expdate)
+                                    Text(expense.expenseDate)
                                         .font(.headline)
                                 }
                             }
+//                            explabel(expenseDate: expense.expenseDate)
                         }
                     }
                 }
@@ -41,9 +42,29 @@ struct ExpenseContentView: View {
                 NavigationLink(destination: { EditExpenseView(vehicle: vehicle) }, label: { Text("New Expense") })
             }
             .navigationTitle("Expense?").fontWeight(.regular)
+            .onAppear {
+                print("ExpenseContentView Link appeared", expenses)
+            }
+        }
+        .onAppear {
+            print("ExpenseContentView appeared", expenses)
         }
     }
 }
+
+//struct explabel: View {
+//    var expenseDate:String
+//
+//    var body: some View {
+//        HStack(alignment:.center) {
+//            VStack(alignment:.leading) {
+//                Text(expenseDate)
+//                    .font(.headline)
+//            }
+//        }
+//    }
+//}
+
 
 //struct ExpenseContentView_Previews: PreviewProvider {
 //    static var previews: some View {
