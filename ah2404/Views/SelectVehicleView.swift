@@ -14,12 +14,12 @@ import FirebaseFirestoreSwift
 struct SelectVehicleView: View {
     @EnvironmentObject var CVModel:CommonViewModel
  
-    @FirestoreQuery(collectionPath: "vehicles", predicates: []) var vehicles: [Vehicle]
+ //   @FirestoreQuery(collectionPath: "vehicles", predicates: []) var vehicles: [Vehicle]
 
     var body: some View {
         NavigationStack {
             List {
-                ForEach(vehicles) { vehicle in
+                ForEach(CVModel.vehicles) { vehicle in
                     NavigationLink(vehicle.formattedVehicle) {
                         ExpenseContentView(vehicle: vehicle)
                     }

@@ -21,8 +21,10 @@ class CommonViewModel: ObservableObject {
     @Published var userSession: FirebaseAuth.User?
     
     @Published var vehicles = [Vehicle]()
-    
+    @Published var expenses = [Expense]()
+
     var vehicleListener: ListenerRegistration?
+    var expenseListener: ListenerRegistration?
 
     init() {
         userSession = auth.currentUser
@@ -65,21 +67,6 @@ class CommonViewModel: ObservableObject {
         }
     }
 
-//    @MainActor
-//    func addVehicle(vehicleData: [String:Any]) async {
-//
-//        taskCompleted = false
-//
-//        do {
-//            try await db.collection("vehicles").document().setData(vehicleData)
-//            taskCompleted = true
-//            print("Debug addVehicle added successfully")
-//
-//        } catch {
-//            print("Debug addVehicle failed \(error.localizedDescription)")
-//        }
-//    }
-//
     func vehicleAny(nickname:String, make:String, model:String, year:Int, initialMiles:Int) -> [String:Any] {
         let vehicleData: [String:Any] = [
             "nickname":nickname,
@@ -123,20 +110,6 @@ class CommonViewModel: ObservableObject {
         }
     }
         
-//    @MainActor
-//    func updateVehicle(vehicleID:String, vehicleData: [String:Any]) async {
-//
-//        taskCompleted = false
-//
-//        do {
-//            try await db.collection("vehicles").document(vehicleID).updateData(vehicleData)
-//            taskCompleted = true
-//            print("Debug updateVehicle updated successfully")
-//
-//        } catch {
-//            print("Debug updateVehicle failed \(error.localizedDescription)")
-//        }
-//    }
 
     @MainActor
     func updateVehicle(vehicleID:String, vehicleData: [String:Any]) async {
@@ -187,7 +160,85 @@ class CommonViewModel: ObservableObject {
             print("Debug deleteVehicle failed \(error.localizedDescription)")
         }
     }
+    
+    func expenseAny(expenseDate:String, vehicle:String, expenseType:String, amount:String, miles:String, descr:String, cost:String) -> [String:Any] {
+        let expenseData: [String:Any] = [
+            "vehicle":vehicle,
+            "expenseDate":expenseDate,
+            "expenseType":expenseType,
+            "expenseFuel":amount,
+            "expenseMiles":miles,
+            "expenseDescr":descr,
+            "expenseCost":cost
+        ]
+        return expenseData
+    }
+    
+    @MainActor
+    func addExpense (expenseDate:String, vehicle:String, expenseType:String, amount:String, miles:String, descr:String, cost:String) async {
+        
+        let expenseData:[String:Any] = expenseAny(expenseDate:expenseDate, vehicle:vehicle, expenseType:expenseType, amount:amount, miles:miles, descr:descr, cost:cost)
+        
+        taskCompleted = false
+        
+        do {
+            try await db.collection("expenses").document().setData(expenseData)
+            taskCompleted = true
+            print("Debug addExpense added successfully")
+            
+        } catch {
+            print("Debug addExpense failed \(error.localizedDescription)")
+        }
+    }
+        
+    @MainActor
+    func addExpense (expenseData:[String:Any]) async {
+        
+        taskCompleted = false
+        
+        do {
+            try await db.collection("expenses").document().setData(expenseData)
+            taskCompleted = true
+            print("Debug addExpense added successfully")
+            
+        } catch {
+            print("Debug addExpense failed \(error.localizedDescription)")
+        }
+    }
+    
+    @MainActor
+    func updateExpense(expenseID:String, expenseData: [String:Any]) async {
+        
+        taskCompleted = false
+        
+        do {
+            try await db.collection("expenses").document(expenseID).updateData(expenseData)
+            taskCompleted = true
+            print("Debug updateExpense updated successfully")
+            
+        } catch {
+            print("Debug updateExpense failed \(error.localizedDescription)")
+        }
+    }
 
+    @MainActor
+    func updateExpense(expenseID:String, expenseDate:String, vehicle:String, expenseType:String, amount:String, miles:String, descr:String, cost:String) async {
+        
+        let expenseData:[String:Any] = expenseAny(expenseDate:expenseDate, vehicle:vehicle, expenseType:expenseType, amount:amount, miles:miles, descr:descr, cost:cost)
+        
+        taskCompleted = false
+        
+        do {
+            try await db.collection("expenses").document(expenseID).updateData(expenseData)
+            taskCompleted = true
+            print("Debug updateExpense updated successfully")
+            
+        } catch {
+            print("Debug updateExpense failed \(error.localizedDescription)")
+        }
+    }
+
+/*
     @MainActor
     func addExpense(expenseData: [String:Any]) async {
         
@@ -202,11 +253,7 @@ class CommonViewModel: ObservableObject {
             print("Debug addExpense failed \(error.localizedDescription)")
         }
     }
-
-//    func addExpense(expenseData: [String:Any]) {
-//        print("in addExpense")
-//    }
-    
+*/
     func vehicleSubscribe() {
         if vehicleListener == nil {
             vehicleListener = db.collection("vehicles").addSnapshotListener
@@ -215,7 +262,7 @@ class CommonViewModel: ObservableObject {
                     print("No causes")
                     return
                 }
-                self.vehicles = []
+                self.expenses = []
                 _ = documents.map { queryDocumentSnapshot -> Void in
                     let data = queryDocumentSnapshot.data()
                     self.vehicles.append(Vehicle(
@@ -231,4 +278,32 @@ class CommonViewModel: ObservableObject {
             }
         }
     }
+    
+    func expenseSubscribe() {
+        if expenseListener == nil {
+            expenseListener = db.collection("expenses").addSnapshotListener
+            { [self] (querySnapshot, error) in
+                guard let documents = querySnapshot?.documents else {
+                    print("No causes")
+                    return
+                }
+                self.expenses = []
+                _ = documents.map { queryDocumentSnapshot -> Void in
+                    let data = queryDocumentSnapshot.data()
+                    self.expenses.append(Expense(
+                        fsid: queryDocumentSnapshot.documentID,
+                        expenseDate: data["expenseDate"] as? String ?? "",
+                        vehicle: data["vehicle"] as? String ?? "",
+                        expenseType: data["expenseType"] as? String ?? "",
+                        amount: data["expenseFuel"] as? String ?? "",
+                        miles: data["expenseMiles"] as? String ?? "",
+                        descr: data["expenseDescr"] as? String ?? "",
+                        cost: data["expenseCost"] as? String ?? ""
+                    ))
+                    return
+                }
+            }
+        }
+    }
+
 }

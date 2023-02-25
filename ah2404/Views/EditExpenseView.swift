@@ -142,12 +142,13 @@ struct EditExpenseView: View {
         .onAppear {
             if let expense = expense {
                 expdate = expense.expenseDate
-//                expenseIntDate = DateService.dateExt2Int(inDate: expdate)
+                expenseIntDate = expense.internalExpenseDate
                 expenseHeading = "Edit Expense"
                 expenseType = expense.expenseType
                 expenseFuel = expense.expenseFuel
                 expmiles = expense.expenseMiles
                 expdescr = expense.expenseDescr
+                expcost = expense.expenseCost
                 editing = true
                 saveMessage = "Update"
             } else {
@@ -161,6 +162,7 @@ struct EditExpenseView: View {
                 expenseFuel = ""
                 expmiles = ""
                 expdescr = ""
+                expcost = ""
                 editing = false
                 saveMessage = "Add"
             }
